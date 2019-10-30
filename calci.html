@@ -1,23 +1,33 @@
 <html>
     <head>
-        <title> My Calculator </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> My Calculator </title>
         <script>
+            function doit () {
+                document.form.textview1.value = "=" + eval(document.form.textview.value);
+            }
             function insert (num) {
                 document.form.textview.value = document.form.textview.value + num;
+                doit();
             }
             function equals () {
+                document.form.textview1.value = "";
                 document.form.textview.value = eval(document.form.textview.value);
                 document.form.textview.value = document.form.textview.value.substring(0,8);
             }
             function bksp () {
                 document.form.textview.value = document.form.textview.value.substring(0,document.form.textview.value.length-1);
+                doit ();
             }
             
             function enterpressalert (e, textarea) {
                 var code = (e.keyCode ? e.keyCode : e.which);
                 if(code == 13) {
                     document.form.eq.click();
+                    event.preventDefault();
+                }
+                else {
+                    doit();
                     event.preventDefault();
                 }
             }
@@ -38,6 +48,18 @@
                 text-align: right;
                 text-emphasis: strong;
                 font-size: 80px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .textview1 {
+                width : 500px;
+                height : 70px;
+                background-color: #1f1f1f; /* Green */
+                border: none;
+                color: #d0d0d0;
+                padding: 30px 30px;
+                text-align: right;
+                text-emphasis: strong;
+                font-size: 40px;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             }
             .button1 {
@@ -70,22 +92,25 @@
                 position : absolute;
                 left : 50%;
                 top : 100%;
-                transform : translate(-250px,-500px);
+                transform : translate(-250px,-655px);
             }
-            .info {
-                color : white;
-                background-color : #0099cc;
-                text-align : center;
-                font-size : 30px;
-                font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            .fade {
+                padding: 30px 30px;
+                text-align : left;
+                color: #d0d0d0;
+                font-size : 20px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             }
         </style>
     </head>
     <body bgcolor = #1f1f1f>
-        <div class = "main">
+        <div class = "main frame">
             <form name = "form">
-                <input class = "textview" name = "textview" onKeyPress="enterpressalert(event, this)">
-                <br><table CELLSPACING = 0>
+                    <input class = "textview" name = "textview" onKeyPress="enterpressalert(event, this)">
+                    <H6 class = "fade" name = "mem" display = "none";>Memory : </H6>
+                    <input class = "textview1" name = "textview1" disabled = true>
+                <br>
+                <table CELLSPACING = 0>
                     <tr>
                         <td><input type = "button" class = "button1" value = "7" onclick = "insert(7)"></td>
                         <td><input type = "button" class = "button1" value = "8" onclick = "insert(8)"></td>
@@ -94,9 +119,9 @@
                         <td><input type = "button" class = "button2" value = "C" onclick = "bksp()"></td>
                     </tr>
                     <tr>
-                        <td><input type = "button" class = "button1" value = "4" onclick = "insert(4)"></td>
-                        <td><input type = "button" class = "button1" value = "5" onclick = "insert(5)"></td>
-                        <td><input type = "button" class = "button1" value = "6" onclick = "insert(6)"></td>
+                        <td><input type = "button" class = "button1" value = "4" onclick = "insert(5)"></td>
+                        <td><input type = "button" class = "button1" value = "5" onclick = "insert(6)"></td>
+                        <td><input type = "button" class = "button1" value = "6" onclick = "insert(7)"></td>
                         <td><input type = "button" class = "button2" value = "*" onclick = "insert('*')"></td>
                         <td><input type = "button" class = "button2" disabled = true value = ""></td>
                 </tr>
