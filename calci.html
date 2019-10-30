@@ -14,7 +14,10 @@
             
             function enterpressalert (e, textarea) {
                 var code = (e.keyCode ? e.keyCode : e.which);
-                if(code == 13) document.form.eq.click();
+                if(code == 13) {
+                    document.form.eq.click();
+                    event.preventDefault();
+                }
             }
 
         </script>
