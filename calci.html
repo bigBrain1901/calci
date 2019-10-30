@@ -6,7 +6,7 @@
                 document.form.textview.value = document.form.textview.value + num;
             }
             function equals () {
-                document.form.textview.value = eval(document.form.textview.value).substring(0,5);
+                document.form.textview.value = eval(document.form.textview.value).toString().substring(0,5);
             }
             function bksp () {
                 document.form.textview.value = document.form.textview.value.substring(0,document.form.textview.value.length-1);
