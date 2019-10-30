@@ -3,12 +3,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> My Calculator </title>
         <script>
+            var pos = 0;
             function doit () {
                 document.form.textview1.value = "=" + eval(document.form.textview.value);
             }
             function insert (num) {
                 var count = 0;
-                if (num == '.') for (int i=0; i;<document.form.textview.value.length; i++) if (document.form.textview.value.charAt(i)=='.') count++;
+                switch (num) {
+                    case '+':
+                    case '-':
+                    case '*':
+                    case '/':
+                        pos = document.form.textview.value + 2; break;
+                }
+                if (num == '.') for (int i=pos; i;<document.form.textview.value.length; i++) if (document.form.textview.value.charAt(i)=='.') count++;
                 if ((num == '.' && count == 0) ^ num!='.') document.form.textview.value = document.form.textview.value + num;
                 doit();
             }
