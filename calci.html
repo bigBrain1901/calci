@@ -14,7 +14,7 @@
                     case '-':
                     case '*':
                     case '/':
-                        pos = document.form.textview.value + 2; break;
+                        pos = document.form.textview.value.length + 1; break;
                 }
                 if (num == '.') for (int i=pos; i;<document.form.textview.value.length; i++) if (document.form.textview.value.charAt(i)=='.') count++;
                 if ((num == '.' && count == 0) ^ num!='.') document.form.textview.value = document.form.textview.value + num;
