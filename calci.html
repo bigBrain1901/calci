@@ -8,8 +8,8 @@
             }
             function insert (num) {
                 var count = 0;
-                if (num == '.') for (int i=0; i;<document.form.textview.value.length; i++) count++;
-                if ((num == '.' && count == 0) || num!='.') document.form.textview.value = document.form.textview.value + num;
+                if (num == '.') for (int i=0; i;<document.form.textview.value.length; i++) if (document.form.textview.value.charAt(i)=='.') count++;
+                if ((num == '.' && count == 0) ^ num!='.') document.form.textview.value = document.form.textview.value + num;
                 doit();
             }
             function equals () {
