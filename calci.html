@@ -7,7 +7,9 @@
                 document.form.textview1.value = "=" + eval(document.form.textview.value);
             }
             function insert (num) {
-                document.form.textview.value = document.form.textview.value + num;
+                var count = 0;
+                if (num == '.') for (int i=0; i;<document.form.textview.value.length; i++) count++;
+                if ((num == '.' && count == 0) || num!='.') document.form.textview.value = document.form.textview.value + num;
                 doit();
             }
             function equals () {
