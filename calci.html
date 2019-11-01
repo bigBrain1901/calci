@@ -4,18 +4,21 @@
         <title> My Calculator </title>
         <script>
             var pos = 0;
+            var flag = false;
             function doit () {
                 document.form.textview1.value = "= " + eval(document.form.textview.value);
             }
             function insert (num) {
-                if (document.form.textview1.value == "") document.form.textview1.value = "";
+                if (document.form.textview1.value == "" && flag == false) document.form.textview1.value = "";
                 var count = 0;
                 switch (num) {
                     case '+':
                     case '-':
                     case '*':
                     case '/':
-                        pos = document.form.textview.value.length + 1; break;
+                        pos = document.form.textview.value.length + 1;
+                        flag = true;
+                        break;
                 }
                 if (num == '.') for (var i=pos; i<document.form.textview.value.length; i++) if (document.form.textview.value.charAt(i)=='.') count++;
                 if ((num == '.' && count == 0) ^ num!='.') document.form.textview.value = document.form.textview.value + num;
