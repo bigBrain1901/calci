@@ -9,7 +9,6 @@
                 document.form.textview1.value = "= " + eval(document.form.textview.value);
             }
             function insert (num) {
-                if (document.form.textview1.value == "" && flag == false) clear1();
                 var count = 0;
                 switch (num) {
                     case '+':
@@ -19,6 +18,7 @@
                         pos = document.form.textview.value.length + 1;
                         flag = true;
                         break;
+                        default : if (document.form.textview1.value == "" && flag == false) clear1();
                 }
                 if (num == '.') for (var i=pos; i<document.form.textview.value.length; i++) if (document.form.textview.value.charAt(i)=='.') count++;
                 if ((num == '.' && count == 0) ^ num!='.') document.form.textview.value = document.form.textview.value + num;
