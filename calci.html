@@ -8,6 +8,7 @@
                 document.form.textview1.value = "= " + eval(document.form.textview.value);
             }
             function insert (num) {
+                if (document.form.textview1.value == "") document.form.textview1.value = "";
                 var count = 0;
                 switch (num) {
                     case '+':
